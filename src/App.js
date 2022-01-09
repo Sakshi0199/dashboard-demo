@@ -1,17 +1,65 @@
 import "./App.css";
 import { Col, Container, ProgressBar, Row } from "react-bootstrap";
 import BannerImg from "./assets/images/banner.png";
+import LogoImg from "./assets/images/logo.png";
+import AdImg from "./assets/images/ad.png";
+import { useState } from "react";
 
 function App() {
+  const [state, setState] = useState("Dashboard");
   return (
     <div className="main-bg">
       <div className="dashboard-body">
         <Container className="p-0">
           <Row>
-            <Col xs={2}>
-              <div className="bg-primary"></div>
+            <Col sm={2} className="p-4 pe-0">
+              <div className="logo my-2">
+                <img src={LogoImg} alt="logo" />
+              </div>
+              <div className="routes">
+                {[
+                  "Dashboard",
+                  "Classes",
+                  "Resources",
+                  "Learning Plan",
+                  "Chat",
+                  "Setting",
+                ].map((route, index) => {
+                  return (
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div
+                        className="d-flex align-items-center m-4 my-3 me-0"
+                        key={`routes-${index}`}
+                      >
+                        <div className="icon me-2">
+                          {state === route ? (
+                            <i class="fa fa-folder-o text-purple" aria-hidden="true"></i>
+                          ) : (
+                            <i
+                              class="fa fa-folder-o text-secondary"
+                              aria-hidden="true"
+                            ></i>
+                          )}
+                        </div>
+                        {state === route ? (
+                          <div className="text smaller bold">{route}</div>
+                        ) : (
+                          <div className="text-secondary smaller">{route}</div>
+                        )}
+                      </div>
+                      {state === route ? <div className="accent"></div> : null}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="ad flex-center">
+                <img src={AdImg} alt="ad" />
+              </div>
+              <div className="flex-center">
+                <button className="upgrade btn px-4">Upgrade</button>
+              </div>
             </Col>
-            <Col xs={7} className="middle-section p-4">
+            <Col sm={7} className="middle-section p-4">
               <div className="navbar-strip my-3 d-flex justify-content-between">
                 <div className="title">Dashboard</div>
                 <div className="rhs d-flex align-items-center">
@@ -28,7 +76,7 @@ function App() {
               </div>
               <Container className="p-0">
                 <Row>
-                  <Col xs={6}>
+                  <Col sm={6}>
                     <div className="latest-results">
                       <div className="results-heading d-flex justify-content-between p-2 mb-2">
                         <div className="title bold small">Latest Results</div>
@@ -69,7 +117,7 @@ function App() {
                       })}
                     </div>
                   </Col>
-                  <Col xs={6}>
+                  <Col sm={6}>
                     <div className="learning-time-period">
                       <div className="results-heading d-flex justify-content-between p-2 mb-2">
                         <div className="title bold small">
@@ -137,7 +185,7 @@ function App() {
 
                   {[1, 2, 3].map((course, index) => {
                     return (
-                      <Col xs={4} className="bg-purple mt-3">
+                      <Col sm={4} className="bg-purple mt-3">
                         <div className="course-box d-flex align-items-center text-white">
                           <div className="class-box p-2 bg-overlay text-white">
                             C1
@@ -161,7 +209,7 @@ function App() {
                 </Row>
               </Container>
             </Col>
-            <Col xs={3}>
+            <Col sm={3}>
               <div className="my-4 p-4">
                 <div className="navbar-strip d-flex justify-content-between">
                   <div className="title">Logout</div>
