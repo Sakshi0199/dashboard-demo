@@ -187,18 +187,16 @@ function App() {
                     </div>
                   </Col>
 
-                  {[1, 2, 3].map((course, index) => {
-                    return (
-                      <Col sm={4} className="bg-purple mt-3">
-                        <div className="course-box d-flex align-items-center text-white">
+                  <Col sm={4} className="bg-purple mt-3">
+                        <div className="course-box primary d-flex align-items-center text-white">
                           <div className="class-box p-2 bg-overlay text-white">
-                            C1
+                            B2
                           </div>
                           <div className="course-text ms-3">
-                            <div className="smaller">Bussiness Spanish</div>
+                            <div className="smallest mb-1">Bussiness English</div>
                             <div className="box-link">
                               <div className="text d-flex align-items-center justify-content-between">
-                                <div className="me-2">Vocabulary</div>
+                                <div className="me-2 smaller bold">Grammar</div>
                                 <i
                                   class="fa fa-long-arrow-right"
                                   aria-hidden="true"
@@ -208,8 +206,44 @@ function App() {
                           </div>
                         </div>
                       </Col>
-                    );
-                  })}
+                      <Col sm={4} className="bg-purple mt-3">
+                        <div className="course-box secondary d-flex align-items-center text-white">
+                          <div className="class-box p-2 bg-overlay text-white">
+                            B2
+                          </div>
+                          <div className="course-text ms-3">
+                            <div className="smallest mb-1">Common English</div>
+                            <div className="box-link">
+                              <div className="text d-flex align-items-center justify-content-between">
+                                <div className="me-2 smaller bold">Phrasal verbs</div>
+                                <i
+                                  class="fa fa-long-arrow-right"
+                                  aria-hidden="true"
+                                ></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Col>
+                      <Col sm={4} className="bg-purple mt-3">
+                        <div className="course-box d-flex align-items-center text-white">
+                          <div className="class-box p-2 bg-overlay text-white">
+                            C1
+                          </div>
+                          <div className="course-text ms-3">
+                            <div className="smallest mb-1">Bussiness Spanish</div>
+                            <div className="box-link">
+                              <div className="text d-flex align-items-center justify-content-between">
+                                <div className="me-2 smaller bold">Vocabulary</div>
+                                <i
+                                  class="fa fa-long-arrow-right"
+                                  aria-hidden="true"
+                                ></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Col>
                 </Row>
               </Container>
             </Col>
