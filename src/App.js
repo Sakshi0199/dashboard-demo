@@ -3,6 +3,7 @@ import { Col, Container, ProgressBar, Row } from "react-bootstrap";
 import BannerImg from "./assets/images/banner.png";
 import LogoImg from "./assets/images/logo.png";
 import AdImg from "./assets/images/ad.png";
+import ProfileImg from "./assets/images/profile.png";
 import { useState } from "react";
 
 function App() {
@@ -33,7 +34,10 @@ function App() {
                       >
                         <div className="icon me-2">
                           {state === route ? (
-                            <i class="fa fa-folder-o text-purple" aria-hidden="true"></i>
+                            <i
+                              class="fa fa-folder-o text-purple"
+                              aria-hidden="true"
+                            ></i>
                           ) : (
                             <i
                               class="fa fa-folder-o text-secondary"
@@ -55,7 +59,7 @@ function App() {
               <div className="ad flex-center">
                 <img src={AdImg} alt="ad" />
               </div>
-              <div className="flex-center">
+              <div className="flex-center my-2">
                 <button className="upgrade btn px-4">Upgrade</button>
               </div>
             </Col>
@@ -77,9 +81,9 @@ function App() {
               <Container className="p-0">
                 <Row>
                   <Col sm={6}>
-                    <div className="latest-results">
-                      <div className="results-heading d-flex justify-content-between p-2 mb-2">
-                        <div className="title bold small">Latest Results</div>
+                    <div className="latest-results pt-3">
+                      <div className="results-heading d-flex align-items-center justify-content-between p-2 mb-2">
+                        <div className="title bold smaller">Latest Results</div>
                         <div className="more text-secondary smaller d-flex align-items-center">
                           <div className="text me-2">More</div>
                           <i
@@ -119,8 +123,8 @@ function App() {
                   </Col>
                   <Col sm={6}>
                     <div className="learning-time-period">
-                      <div className="results-heading d-flex justify-content-between p-2 mb-2">
-                        <div className="title bold small">
+                      <div className="results-heading d-flex align-items-center justify-content-between p-2 mb-2">
+                        <div className="title bold smaller">
                           Time spent on learning
                         </div>
                         <div className="more text-secondary smaller d-flex align-items-center">
@@ -209,7 +213,7 @@ function App() {
                 </Row>
               </Container>
             </Col>
-            <Col sm={3}>
+            <Col sm={3} className="p-4 pt-0">
               <div className="my-4 p-4">
                 <div className="navbar-strip d-flex justify-content-between">
                   <div className="title">Logout</div>
@@ -220,13 +224,27 @@ function App() {
                   </div>
                 </div>
               </div>
+              <div className="profile flex-center flex-column my-4">
+                <div className="avatar">
+                  <img src={ProfileImg} alt="profile" />
+                  <div className="cta">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div className="name bold mt-3">Anna Morrison</div>
+                <div className="designation text-secondary smaller">
+                  Student
+                </div>
+              </div>
               <div className=" d-flex align-items-center ">
-                <div className="class-box p-2 bg-overlay text-black">C1</div>
+                <div className="class-box p-2 bg-25 text-black">B2</div>
                 <div className="course-text ms-3">
-                  <div className="smaller">English</div>
+                  <div className="smaller mb-1">English</div>
                   <div className="box-link">
                     <div className="text d-flex align-items-center justify-content-between">
-                      <div className="me-2 smaller-text">High Intermediate</div>
+                      <div className="me-2 smaller-text text-secondary">
+                        High Intermediate
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -236,6 +254,58 @@ function App() {
                     className="progress-bar-custom-smaller"
                   />
                 </div>
+              </div>
+              <div className="my-3"></div>
+              <div className=" d-flex align-items-center ">
+                <div className="class-box p-2 bg-25 text-black">B2</div>
+                <div className="course-text ms-3">
+                  <div className="smaller mb-1">English</div>
+                  <div className="box-link">
+                    <div className="text d-flex align-items-center justify-content-between">
+                      <div className="me-2 smaller-text text-secondary">
+                        High Intermediate
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex-center">
+                  <ProgressBar
+                    now={90}
+                    className="progress-bar-custom-smaller"
+                  />
+                </div>
+              </div>
+              <div className="reminders mt-5">
+                <div className="heading-strip mt-3">
+                  <div className="results-heading d-flex align-items-center justify-content-between p-2 mb-2">
+                    <div className="title bold smaller">Reminders</div>
+                    <div className="more text-secondary d-flex align-items-center">
+                      <i class="fa fa-bell-o" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                {[1, 2, 3].map((reminder, index) => {
+                  return (
+                    <div className=" d-flex align-items-center mb-3">
+                      <div className="class-box p-2 bg-25 text-black">
+                        <i
+                          class="fa fa-envelope-o fs-6 text-purple"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+                      <div className="course-text ms-3">
+                        <div className="smaller mb-1">Eng-Vocabulary test</div>
+                        <div className="box-link">
+                          <div className="text d-flex align-items-center justify-content-between">
+                            <div className="me-2 text-secondary roboto smallest">
+                              24 Sep 2019 Friday
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </Col>
           </Row>
